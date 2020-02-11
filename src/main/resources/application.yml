@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+# mybatis 매핑 type을 짧게 쓰기 위한 설정
+mybatis:
+  type-aliases-package: com.example.sofiaapi.model
+# mapper 이하를 로깅위치로 설정
+server:
+  port: 8099

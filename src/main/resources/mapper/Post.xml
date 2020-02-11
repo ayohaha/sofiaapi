@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Post">
+
+    <select id="selectPostById" resultType="post">
+        SELECT ID
+              ,TITLE
+              ,CONTENT
+              ,AUTHOR
+          FROM POST
+         WHERE ID = #{id}
+    </select>
+
+    <select id="findAllDesc" resultType="post">
+        SELECT ID
+              ,TITLE
+              ,CONTENT
+              ,AUTHOR
+          FROM POST
+    </select>
+
+    <insert id="save">
+      INSERT INTO POST (TITLE, CONTENT, AUTHOR)
+      VALUES (#{title}, #{content}, #{author})
+    </insert>
+
+</mapper>
