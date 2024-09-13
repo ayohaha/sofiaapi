@@ -27,8 +27,8 @@ public class SampleRestController {
     }
 
     @PostMapping("/posts")
-    public int savePosts(@RequestBody PostsSaveRequestDto dto){
-        return postService.save(dto);
+    public int savePosts(@RequestBody PostsSaveRequestDto dto) {
+        return postService.save(PostsSaveRequestDto.sampleOf(dto.getTitle(), dto.getContent(), dto.getAuthor()));
     }
 
     @GetMapping("/lists")

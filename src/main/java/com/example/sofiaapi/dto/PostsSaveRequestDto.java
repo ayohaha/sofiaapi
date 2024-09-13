@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-@Setter
 @NoArgsConstructor
 public class PostsSaveRequestDto {
 
@@ -15,12 +14,18 @@ public class PostsSaveRequestDto {
     private String content;
     private String author;
 
-    @Builder
-    public PostsSaveRequestDto(String title, String content, String author) {
+    @Builder(builderMethodName = "of")
+    private PostsSaveRequestDto(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
     }
 
-
+    public static PostsSaveRequestDto sampleOf(String title, String content, String author) {
+        return PostsSaveRequestDto.of()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build();
+    }
 }
